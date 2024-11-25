@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <h2>Sum of Even Number Calculator</h2>
+        <form id="subform">
+            <label for="numberInput">Enter a number:</label>
+            <input type="number" id="numberInput" name="numberInput" min="1" required />
+            <button type="button" onclick="calculateIt()">Result</button>
+        </form>
+        <p id="res"></p>
+    </section>
+    <br />
+    <section>
+        <h2>Sum of odd Number Calculator</h2>
+        <form id="secondform">
+            <label for="numberInput">Enter a number:</label>
+            <input type="number" id="number-odd" name="numberInput" min="1" required />
+            <button type="button" onclick="calculateIt2()">Result</button>
+        </form>
+        <p id="res-2"></p>
+    </section>
+    <br />
+    <hr />
+    <section>
+        <h2>Concatenation Between 2 Strings</h2>
+        <form id="thirdform">
+            <label for="textInput">Enter a String1 :</label>
+            <input type="text" id="concat1" name="textInput" min="1" required />
+            <label for="textInput">Enter a String2:</label>
+            <input type="text" id="concat2" name="textInput" min="1" required />
+            <button type="button" onclick="combine()">Result</button>
+        </form>
+        <p id="res-3"></p>
+    </section>
+    <br />
+    <hr />
+    <section>
+        <h2>Program to Extract the Last Letter</h2>
+        <form id="fourthform">
+            <label for="extract">Enter a string:</label>
+            <input type="text" id="extract" name="stringInput" required />
+            <button type="button" onclick="extractLetter()">Result</button>
+        </form>
+        <p id="res-4"></p>
+    </section>
+    <hr />
+    <script>
+        function calculateIt() {
+            let n = parseInt(document.getElementById("numberInput").value);
+            if (isNaN(n) || n < 1) {
+                alert("Please enter a valid number");
+            } else {
+                let sum = 0;
+                let evenNumbers = "";
+                for (let i = 1; i <= n; i++) {
+                    if (i % 2 == 0) {
+                        sum += i;
+                        evenNumbers += (evenNumbers.length > 0 ? "+ " : "") + i;
+                    }
+                }
+                document.getElementById(
+                    "res"
+                ).innerHTML = `The Result of Sum Even Number from [1-${n}] is <span style="color: blue">${sum}</span> (${evenNumbers}).`;
+            }
+        }
+    </script>
+    <script>
+        function calculateIt2() {
+            let n = parseInt(document.getElementById("number-odd").value);
+            if (isNaN(n) || n < 1) {
+                alert("Please enter a valid number");
+            } else {
+                let sum = 0;
+                let oddNumbers = "";
+                for (let i = 1; i <= n; i++) {
+                    if (i % 2 == 1) {
+                        sum += i;
+                        oddNumbers += (oddNumbers.length > 0 ? "+ " : "") + i;
+                    }
+                }
+                document.getElementById(
+                    "res-2"
+                ).innerHTML = `The Result of Sum Odd Number from [1-${n}] is <span style="color: blue">${sum}</span> (${oddNumbers}).`;
+            }
+        }
+    </script>
+    <script>
+        function combine() {
+            let str1 = document.getElementById("concat1").value;
+            let str2 = document.getElementById("concat2").value;
+            let result = str1 + str2;
+            document.getElementById(
+                "res-3"
+            ).innerHTML = `The Result of Concatenation between <strong>${str1}</strong> and <strong>${str2}</strong> is 
+            <span style="color:blue">${result}</span>`;
+        }
+    </script>
+    <script>
+        function extractLetter() {
+            let str = document.getElementById("extract").value;
+
+            let result = str.charAt(str.length - 1);
+
+            document.getElementById(
+                "res-4"
+            ).innerHTML = `The Result of Extracting the last letter from <strong>${str}</strong> is 
+                <span style="color:blue">${result}</span>`;
+        }
+    </script>
+</body>
+
+</html>
